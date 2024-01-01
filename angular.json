@@ -60,7 +60,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -70,6 +76,12 @@
           "configurations": {
             "production": {
               "buildTarget": "NewShop_Client:build:production"
+            },
+             "options": {
+              "browserTarget": "NewShop_Client:build",
+              "sslKey": "./src/ssl/server.key",
+              "sslCert": "./src/ssl/server.crt",
+              "ssl": true
             },
             "development": {
               "buildTarget": "NewShop_Client:build:development"
@@ -104,5 +116,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
