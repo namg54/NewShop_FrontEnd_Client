@@ -1,0 +1,39 @@
+.row {
+  padding-left: 1.5vw !important;
+  padding-right: 1.5vw !important;
+  margin: auto;
+}
+.row_Filter {
+  border: 1px dashed;
+  border-top: 0px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.pos-rel {
+  position: relative;
+}
+.mat-sidenav {
+  width: 260px;
+  padding: 20px;
+  margin-left: 20px;
+}
+.mat-content {
+  min-height: 400px;
+  padding: 0% 15px;
+  overflow: hidden;
+}
+// @media (min-width:960px){
+//   .mat-content{padding-right: 265px}
+// }
+.toggle_div{
+  float: left;
+  margin: 5px;
+  margin-bottom: 0px;
+  position: relative;
+  z-index: 2;
+  direction: ltr !important;
+}
+.toggle_btn{
+  float: left;
+  width: fit-content;
+}
