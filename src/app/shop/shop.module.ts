@@ -6,12 +6,14 @@ import { ShopComponent } from './shop.component';
 //import modules
 import { SharedModule } from '../shared/shared.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { ShopFiltersComponent } from './shop-filters/shop-filters.component';
 
 
 
 @NgModule({
   declarations: [
-    ShopComponent
+    ShopComponent,
+    ShopFiltersComponent
   ],
   imports: [
     CommonModule,
