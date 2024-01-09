@@ -1,0 +1,12 @@
+<section *ngIf="breadlengh > 1">
+    <div class="div-breadcrumb d-flex justify-content-between align-items-center">
+      <xng-breadcrumb>
+        <xng-breadcrumb >
+          <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info;">
+            <mat-icon >{{ info }}</mat-icon>
+            <ng-container >{{ breadcrumb  }}</ng-container>
+          </ng-container>
+        </xng-breadcrumb>
+      </xng-breadcrumb>
+    </div>
+  </section>

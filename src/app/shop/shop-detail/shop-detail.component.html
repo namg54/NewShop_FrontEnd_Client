@@ -1,0 +1,35 @@
+<div class="container-fluid bg-dark">
+  <div class="row container_div bg-dark text-white">
+    <div class="col-md-3 col-sm-12 img_div">
+      <img [src]="data.pictureUrl" class="product_img_style" />
+    </div>
+    <div class="col-md-4 col-sm-12 mt-2 brand_div">
+          <p class="type_Brand_Style">
+            {{ data.productType + '/' + data.productBrand }}
+          </p>
+      <p class="product_Name_Style">
+        {{ data.title }}
+      </p>
+    </div>
+    <div class="col-md-2 col-sm-12 mt-2 price_div">
+      <p class="bimeh mt-3">
+        <span class="fas fa-shield-alt"></span>
+        گارانتی ۲۴ ماهه انفورماتیک گستر( ۳۰ روز تعویض) + بیمه ۱۲ ماهه انفورماتیک گستر
+      </p>
+      <br />
+      <p class="product_Price">{{ data.price | number }} تومان</p>
+      <button type="button" class="fas fa-shopping-basket btn btn-danger mt-2 w-100 btn_money">افزودن به سبد خرید</button>
+      <br />
+      <button type="button" class="fas fa-shopping-basket btn btn-success mt-2 w-100 fas fa-dollar-sign">تسویه حساب</button>
+    </div>
+  </div>
+  <div class="row desc_product_div mt-3 bg-dark text-white">
+    <div class="col-12 border-1">
+      <p class="desc_lable">معرفی محصول :</p>
+      <hr />
+      <p class="product_desc">
+        {{ data.description }}
+      </p>
+    </div>
+  </div>
+</div>

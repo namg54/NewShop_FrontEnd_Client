@@ -1,11 +1,39 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.rtl.css';
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 @import './assets/Styles/fonts.scss';
-body{
-    font-family: IRANSans !important;
-    line-height: 1.5;
-    direction: rtl;
-}
+@import '../node_modules/ngx-toastr/toastr.css';
 @import '../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '../node_modules/ngx-spinner/animations/square-jelly-box.css';
+body {
+  font-family: IRANSans !important;
+  line-height: 1.5;
+  direction: rtl;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  overflow-x: hidden !important;
+}
+.xng-breadcrumb-root {
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #44585b;
+  color: antiquewhite;
+}
+.xng-breadcrumb-separator {
+  padding: 0px 4px;
+}
+.div-breadcrumb {
+  background-color: #44585b;
+}
+.spinner-text{
+font-size: 1.3rem;
+color: dodgerblue;
+margin-top: 2.2rem;
+}

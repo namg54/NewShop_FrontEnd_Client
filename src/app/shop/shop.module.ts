@@ -7,13 +7,19 @@ import { ShopComponent } from './shop.component';
 import { SharedModule } from '../shared/shared.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ShopFiltersComponent } from './shop-filters/shop-filters.component';
-
+import { FormsModule } from '@angular/forms';
+import { PaginationComponent } from './pagination/pagination.component';
+import {MatInputModule} from '@angular/material/input';
+import { ShopDetailComponent } from './shop-detail/shop-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     ShopComponent,
-    ShopFiltersComponent
+    ShopFiltersComponent,
+    PaginationComponent,
+    ShopDetailComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +27,10 @@ import { ShopFiltersComponent } from './shop-filters/shop-filters.component';
     SharedModule,
     MatSidenavModule,
     SharedModule,
-    MatSidenavModule
+    MatSidenavModule,
+    FormsModule,
+    MatInputModule,
+    RouterModule
   ]
 })
 export class ShopModule { }

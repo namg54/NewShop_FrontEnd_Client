@@ -27,6 +27,11 @@ export class ShopService {
     let params = this.generateShopParams();
     return this.http.get<IPagination<IProduct>>(this.backendUrl + 'product', { params });
   }
+
+  getProduct(id: number) {
+    return this.http.get<IProduct>(`${this.backendUrl}product/${id}`);
+  }
+
   generateShopParams() {
     let params = new HttpParams();
     if (this.showParams.search) params = params.append('search', this.showParams.search);

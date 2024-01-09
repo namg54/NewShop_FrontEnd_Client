@@ -1,16 +1,40 @@
 <mat-sidenav-container>
+  <!-- sidebar-->
   <mat-sidenav [opened]="sidenavOpen" #drawer [mode]="modeside" class="mat-sidenav">
-   <app-shop-filters (updateParams)="updateParams($event)"></app-shop-filters>
+    <app-shop-filters (updateParams)="updateParams($event)"></app-shop-filters>
   </mat-sidenav>
+  <!-- content-->
   <mat-sidenav-content class="mat-content">
     <div class="row toggle_div w-100">
-      <button mat-mini-fab color="primary"  (click)="drawer.toggle()">
-        <mat-icon fontIcon="menu" ></mat-icon>
-      </button>
-    
+      <div class="col-1 toggle_btn" >
+        <button mat-mini-fab color="primary" (click)="drawer.toggle()">
+          <mat-icon fontIcon="menu"></mat-icon>
+        </button>
+      </div>
+      <!-- search element -->
+      <div class="col-2 div_mat_style">
+          <mat-form-field class="example-form-field">
+            <mat-label class="mat_style">جستجوی محصول</mat-label>
+            <input matInput #search (keydown)="onSearch()" type="text" class="mat_style" [(ngModel)]="searchValue">
+            @if (searchValue) {
+              <button matSuffix mat-icon-button aria-label="Clear" (click)="onClear()">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+          </mat-form-field>
+      </div>
     </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 mt-0 pt-0" style="z-index: 1;">
+  <hr/>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 mt-0 pt-0" style="z-index: 1">
       <app-card-shop *ngFor="let item of data?.result" [product]="item"></app-card-shop>
     </div>
+      <!-- pagination -->
+  <app-pagination 
+  *ngIf="data"
+  (updateParams)="updateParams($event)"
+  [itemsPerPage]="shopParams.pageSize"
+  [totalItems]="data.count"
+  [pageIndex]="shopParams.pageIndex"
+></app-pagination>
   </mat-sidenav-content>
 </mat-sidenav-container>

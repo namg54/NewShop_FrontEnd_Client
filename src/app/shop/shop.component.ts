@@ -1,12 +1,10 @@
-import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
+import { Component, ViewChild, OnDestroy, OnInit, HostListener, ElementRef } from '@angular/core';
 import { ShopService } from './shop.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 //import option
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { IProduct } from '../shared/models/IProduct';
 import { IPagination } from '../shared/models/IPagination';
-import { IType } from '../shared/models/IType';
-import { IBrand } from '../shared/models/IBrand';
+import { shopParams } from '../shared/models/shopParams';
 
 @Component({
   selector: 'app-shop',
@@ -14,12 +12,29 @@ import { IBrand } from '../shared/models/IBrand';
   styleUrl: './shop.component.scss'
 })
 export class ShopComponent implements OnInit, OnDestroy {
+  public shopParams: shopParams;
+  public currentPage: number;
+  //searchh box
+  searchValue: string = '';
+  @ViewChild('search', { static: false }) searchTerm: ElementRef;
+
   updateParams(updated: boolean) {
     if (updated) {
       this.getProducts();
     }
   }
-
+  onSearch() {
+    this.shopParams.search = this.searchTerm.nativeElement.value;
+    this.getProducts();
+  }
+  onClear() {
+    debugger;
+    this.searchValue = null;
+    this.searchTerm.nativeElement.value = undefined;
+    this.shopParams.search ='';
+    this.shopService.UpdateShopParams(this.shopParams);
+    this.getProducts();
+  }
   private sub$ = new Subscription();
   data: IPagination<IProduct>;
 
@@ -36,6 +51,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.getProducts();
+    this.shopParams = this.shopService.getShopParams();
   }
 
   private getProducts() {

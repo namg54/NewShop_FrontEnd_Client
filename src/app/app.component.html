@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
-<div class="album  bg-body-tertiary">
+<ngx-spinner class="spinner-text">در حال نمایش اطلاعات...</ngx-spinner>
+<app-breadcrumb></app-breadcrumb>
+<div class="album bg-body-tertiary">
   <div class="container"></div>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer class="footer_style"></app-footer>

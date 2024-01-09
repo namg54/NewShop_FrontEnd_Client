@@ -42,7 +42,7 @@
         </span>
       </label>
       <select class="form-select rounded-bottom rounded-0" (change)="onChangeSort($any($event.target)?.value)">
-        <option [selected]="item?.key === shopParams?.sort" [value]="item?.key" *ngFor="let item of sortOptions">
+        <option  [selected]="item?.key === shopParams?.sort" [value]="item?.key" *ngFor="let item of sortOptions">
           {{ item?.title }}
         </option>
       </select>
@@ -55,7 +55,7 @@
     <div class="list-group shadow">
       <label class="list-group-item d-flex gap-3 bg-danger border-danger active text-start">
         <span class="form-checked-content">
-          <strong>صعودی نزولی</strong>
+          <strong>صعودی/نزولی</strong>
         </span>
       </label>
       <select class="form-select rounded-bottom rounded-0" (change)="onChangeSortType($any($event.target)?.value)">

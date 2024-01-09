@@ -10,13 +10,29 @@ import { shopParams } from '../../shared/models/shopParams';
   styleUrl: './shop-filters.component.scss'
 })
 export class ShopFiltersComponent implements OnInit {
-onChangeTypes(typeId:number) {
-this.shopParams.typeId=typeId;
-this.shopService.UpdateShopParams(this.shopParams);
-this.updateParams.emit(true);
-}
-  @Output() updateParams = new EventEmitter<boolean>();
+testt : string;
+  sortTypeOptions= [
+    { key: 1, title: 'زیاد به کم' },
+    { key: 2, title: 'کم به زیاد' }
+  ];
+  sortOptions= [
+   { key: 1, title: 'قیمت' },
+   { key: 2, title: 'عنوان محصول' },
+   { key: 3, title: 'برند' },
+   { key: 4, title: 'نوع' }
+  ];
 
+  public dataTypes: IType[];
+  public dataBrands: IBrand[];
+  public shopParams: shopParams;
+  @Output() updateParams = new EventEmitter<boolean>();
+tesst: any="sss";
+
+  onChangeTypes(typeId: number) {
+    this.shopParams.typeId = typeId;
+    this.shopService.UpdateShopParams(this.shopParams);
+    this.updateParams.emit(true);
+  }
   onChangeBrands(brandId: number) {
     this.shopParams.brandId = brandId;
     this.shopService.UpdateShopParams(this.shopParams);
@@ -28,17 +44,15 @@ this.updateParams.emit(true);
     this.getBrand();
     this.getType();
   }
-  sortTypeOptions: any;
-  sortOptions: any;
-  public dataTypes: IType[];
-  public dataBrands: IBrand[];
-  public shopParams: shopParams;
-
-  onChangeSort(arg0: any) {
-    throw new Error('Method not implemented.');
+  onChangeSort(sort: number) {
+    this.shopParams.sort = sort;
+    this.shopService.UpdateShopParams(this.shopParams);
+    this.updateParams.emit(true);
   }
-  onChangeSortType(arg0: any) {
-    throw new Error('Method not implemented.');
+  onChangeSortType(typeSort: number) {
+    this.shopParams.typeSort=typeSort;
+    this.shopService.UpdateShopParams(this.shopParams);
+    this.updateParams.emit(true);
   }
   private getType() {
     this.shopService.getTypes().subscribe((res) => {
