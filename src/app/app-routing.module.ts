@@ -5,6 +5,7 @@ import { ShopComponent } from './shop/shop.component';
 import { NotFoundComponent } from './core/Layers/not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ServerErrorComponent } from './core/Layers/server-error/server-error.component';
+import { BasketComponent } from './basket/basket.component';
 
 const routes: Routes = [
   {
@@ -47,10 +48,20 @@ const routes: Routes = [
     component: ServerErrorComponent
   },
   {
+    path: 'basket',
+    title: 'سبد خرید',
+    component: BasketComponent,
+    loadChildren: () => import('./basket/basket.module').then((x) => x.BasketModule),
+    data:{breadcrumb: {
+      label: 'سبد خرید',
+      info: 'shop'
+    }}
+  },
+  {
     path: '**',
     title: 'عدم وجود صفحه',
     component: NotFoundComponent
-  }
+  },
 ];
 
 @NgModule({

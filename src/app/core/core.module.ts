@@ -12,10 +12,11 @@ import { ServerErrorComponent } from './Layers/server-error/server-error.compone
 import { BreadcrumbComponent } from './Layers/breadcrumb/breadcrumb.component';
 import { SharedModule } from '../shared/shared.module';
 import { loadingInterceptor } from './interceptors/loading.interceptor';
+import { BasketModule } from '../basket/basket.module';
 
 @NgModule({
   declarations: [FooterComponent, NavbarComponent, NotFoundComponent, ServerErrorComponent, BreadcrumbComponent],
-  imports: [CommonModule, RouterModule, SharedModule],
+  imports: [CommonModule, RouterModule, SharedModule,BasketModule],
   exports: [FooterComponent, NavbarComponent, BreadcrumbComponent],
   providers: [
     {

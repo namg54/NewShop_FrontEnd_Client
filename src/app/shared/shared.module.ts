@@ -13,6 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { BasketRoutingModule } from '../basket/basket-routing.module';
+import { BasketModule } from '../basket/basket.module';
 //breadcrumb
 
 @NgModule({
@@ -36,7 +38,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BreadcrumbModule,
     NgxSpinnerModule.forRoot({
       type:'square-jelly-box'
-   })
+   }),
+   BasketModule
   ],
   exports: [
     RouterModule,
